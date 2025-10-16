@@ -17,6 +17,9 @@ Intents Implícitos:
 5) Contactos: Opcion que abrira los contactos del dispositivo utilizando el codigo: "Intent.ACTION_PICK con ContactsContract.Contacts.CONTENT_URI"
 
 
+
+
+
 ---- Gifts con el funcionamiento de los Intents implementados ----
 
 Intents Explicitos:
