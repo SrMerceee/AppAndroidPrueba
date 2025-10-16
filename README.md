@@ -1,8 +1,10 @@
 # AppAndroidPrueba
 Prueba Android 17/10/2025
 
-En este proyecto se realizo un trabajo el cual consistia implemententar intents, 3 explicitos y 5 implicitos a eleccion,
-en un proyecto el cual se nos fue dado.
+Este proyecto consiste en el desarrollo de una aplicación móvil Android que utiliza intents implícitos y explícitos para realizar diversas acciones dentro y fuera de la app. Su propósito principal es demostrar el uso práctico de los Intents como medio de comunicación entre componentes y como herramienta para acceder a funciones nativas del dispositivo.
+
+La aplicación permite al usuario abrir el marcador telefónico, consultar contactos, acceder a Google Maps, configurar opciones del sistema como Wi-Fi o Bluetooth, y abrir un sitio web, todo desde una interfaz sencilla e intuitiva. Además, se implementan eventos explícitos para gestionar las interacciones internas entre pantallas, garantizando una navegación fluida y controlada. Este proyecto busca reforzar el aprendizaje en el uso de componentes básicos de Android Studio, la gestión del ciclo de vida de actividades y la integración con servicios del sistema, combinando funcionalidad, diseño y comprensión del entorno de desarrollo móvil.
+
 
 Intents Explicitos:
 1) Detalle Activity: Mostrar algun dato utilizando el codigo "putExtra"
