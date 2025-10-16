@@ -23,6 +23,13 @@
             android:name=".PerfilActivity"
             android:exported="false" />
         <activity
+            android:name=".ConfigActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetalleActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".HomeActivity"
             android:exported="false" />
         <activity

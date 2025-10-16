@@ -65,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         // Simulación de login
-        boolean ok = email.equals("estudiante@st.cl") && pass.equals("123456");
+        boolean ok = email.equals("admin@st.cl") && pass.equals("123456");
         if (ok) {
             Toast.makeText(this, "¡Bienvenido!", Toast.LENGTH_SHORT).show();
 

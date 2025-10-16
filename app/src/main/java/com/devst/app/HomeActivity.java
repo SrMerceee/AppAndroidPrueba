@@ -30,15 +30,17 @@ import androidx.core.view.WindowInsetsCompat;
 public class HomeActivity extends AppCompatActivity {
 
     // Variables
+    String Numero = "+56940605469";
     private String emailUsuario = "";
     private TextView tvBienvenida;
-
     //VARIABLES PARA LA CAMARA
     private Button btnLinterna;
+    private Button btnLlamar;
+    private  Button btnConfig;
     private CameraManager camara;
     private String camaraID = null;
     private boolean luz = false;
-
+    //-------------------------------------------------------------------------
     // Activity Result (para recibir datos de PerfilActivity)
     private final ActivityResultLauncher<Intent> editarPerfilLauncher =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
@@ -60,7 +62,7 @@ public class HomeActivity extends AppCompatActivity {
                     Toast.makeText(this, "Permiso de cámara denegado", Toast.LENGTH_SHORT).show();
                 }
             });
-
+    //-------------------------------------------------------------------------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +72,7 @@ public class HomeActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+    //-------------------------------------------------------------------------
         //Referencias
         tvBienvenida = findViewById(R.id.tvBienvenida);
         Button btnIrPerfil = findViewById(R.id.btnIrPerfil);
@@ -78,26 +81,38 @@ public class HomeActivity extends AppCompatActivity {
         Button btnCompartir = findViewById(R.id.btnCompartir);
         btnLinterna = findViewById(R.id.btnLinterna);
         Button btnCamara = findViewById(R.id.btnCamara);
+        btnLlamar = findViewById(R.id.btnLlamar);
+        Button btnConfig = findViewById(R.id.btnConfig);
 
         // Recibir dato del Login
         emailUsuario = getIntent().getStringExtra("email_usuario");
         if (emailUsuario == null) emailUsuario = "";
         tvBienvenida.setText("Bienvenido: " + emailUsuario);
-
-        // Evento: Intent explícito → ProfileActivity (esperando resultado)
+    //-------------------------------------------------------------------------
+        // Evento: Intent explícito → ProfileActivity
         btnIrPerfil.setOnClickListener(v -> {
             Intent i = new Intent(HomeActivity.this, PerfilActivity.class);
             i.putExtra("email_usuario", emailUsuario);
             editarPerfilLauncher.launch(i);
         });
+    //-------------------------------------------------------------------------
+        btnConfig.setOnClickListener(v -> {
+           Intent i = new Intent(HomeActivity.this, ConfigActivity.class);
+            i.putExtra("email_usuario", emailUsuario);
+            startActivity(i);
 
+            //codigo de transicion, se usa para definir animaciones, este caso hace una aniamcion de desplazamiento hacoa la izquierda
+            //y la actividad antigua lo hara con animacion hacia la derecha
+            overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        });
+    //-------------------------------------------------------------------------
         // Evento: Intent implícito → abrir web
         btnAbrirWeb.setOnClickListener(v -> {
             Uri uri = Uri.parse("https://www.santotomas.cl");
             Intent viewWeb = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(viewWeb);
         });
-
+    //-------------------------------------------------------------------------
         // Evento: Intent implícito → enviar correo
         btnEnviarCorreo.setOnClickListener(v -> {
             Intent email = new Intent(Intent.ACTION_SENDTO);
@@ -107,7 +122,7 @@ public class HomeActivity extends AppCompatActivity {
             email.putExtra(Intent.EXTRA_TEXT, "Hola, esto es un intento de correo.");
             startActivity(Intent.createChooser(email, "Enviar correo con:"));
         });
-
+    //-------------------------------------------------------------------------
         // Evento: Intent implícito → compartir texto
         btnCompartir.setOnClickListener(v -> {
             Intent share = new Intent(Intent.ACTION_SEND);
@@ -115,10 +130,17 @@ public class HomeActivity extends AppCompatActivity {
             share.putExtra(Intent.EXTRA_TEXT, "Hola desde mi app Android 😎");
             startActivity(Intent.createChooser(share, "Compartir usando:"));
         });
+    //-------------------------------------------------------------------------
+        //Boton que trae el pad numerico con un numero previamente registrado
+        btnLlamar.setOnClickListener(v-> {
+            Intent call = new Intent(Intent.ACTION_DIAL);
+            call.setData(Uri.parse("tel:" + Numero));
+            startActivity(call);
+        });
+    //-------------------------------------------------------------------------
 
 
         //Linterna Inicializamos la camara
-
         camara = (CameraManager) getSystemService(CAMERA_SERVICE);
 
         try {
@@ -158,7 +180,7 @@ public class HomeActivity extends AppCompatActivity {
         );
 
     }
-
+    //-------------------------------------------------------------------------
     //Linterna
     private void alternarluz() {
         try {
@@ -170,7 +192,7 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-
+    //-------------------------------------------------------------------------
     @Override
     protected void onPause() {
         super.onPause();
@@ -183,17 +205,7 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
+    //-------------------------------------------------------------------------
     // ===== Menú en HomeActivity =====
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
