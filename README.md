@@ -21,7 +21,9 @@ Intents Implícitos:
 
 Intents Explicitos:
 1) Boton Detalle
+   
 ![BotonDetalle](https://github.com/user-attachments/assets/10741762-53e1-45c2-81fa-9b86e2fe69b9)
+
 2-3) (Boton Configuracion + Transicion)
 ![BotonConfig](https://github.com/user-attachments/assets/85835cf7-9fc0-4269-8219-a1ef8c02f833)
    
