@@ -1,6 +1,7 @@
 # AppAndroidPrueba
-Prueba Android 17/10/2025
-Version usada: Narwhal (2025.1.4)
+📌Prueba Android 17/10/2025
+
+📌Version usada: Narwhal (2025.1.4) 
 
 Este proyecto consiste en el desarrollo de una aplicación móvil Android que utiliza intents implícitos y explícitos para realizar diversas acciones dentro y fuera de la app. Su propósito principal es demostrar el uso práctico de los Intents como medio de comunicación entre componentes y como herramienta para acceder a funciones nativas del dispositivo.
 
