@@ -1,4 +1,4 @@
-![BotonUbicacion](https://github.com/user-attachments/assets/0dd778d8-5354-4bd8-a718-189efdc4ec38)![BotonConfig](https://github.com/user-attachments/assets/9c8bd4ff-f85a-4cad-a4bc-951f57bb61dc)# AppAndroidPrueba
+# AppAndroidPrueba
 Prueba Android 17/10/2025
 
 En este proyecto se realizo un trabajo el cual consistia implemententar intents, 3 explicitos y 5 implicitos a eleccion,
